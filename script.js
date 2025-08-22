@@ -4,7 +4,6 @@ function generatePass() {
   const ticketDiv = document.getElementById("boardingPass");
   const actionsDiv = document.getElementById("actions");
 
-  // Clear old content
   ticketDiv.innerHTML = "";
 
   if (!bookings[bookingId]) {
@@ -20,29 +19,44 @@ function generatePass() {
   }
 
   ticketDiv.innerHTML = `
-    <div class="ticket-left">
-      <h2>TRAIN BOARDING PASS</h2>
-      <p><strong>Name:</strong> ${data.name}</p>
-      <p><strong>Booking ID:</strong> ${bookingId}</p>
-      <p><strong>Train No:</strong> ${data.train}</p>
-      <p><strong>Coach:</strong> ${data.coach}</p>
-      <p><strong>Seat:</strong> ${data.seat}</p>
-    </div>
-    <div class="ticket-right">
-      <p><strong>Date:</strong> ${data.date}</p>
-      <p><strong>Time:</strong> ${data.time}</p>
-      <p><strong>From:</strong> ${data.from}</p>
-      <p><strong>To:</strong> ${data.to}</p>
-      <p><strong>Phone:</strong> ${data.phone}</p>
-      <div id="qrcode"></div>
+    <div class="ticket-wrapper">
+      <div class="ticket-header">
+        <span>🚆 BKN DURANTO EXP</span>
+        <span>ECONOMY</span>
+        <span>BOARDING PASS</span>
+      </div>
+      <div class="ticket">
+        <div class="ticket-left">
+          <div class="ticket-section">
+            <p><strong>Name:</strong> ${data.name}</p>
+            <p><strong>Booking ID:</strong> ${bookingId}</p>
+            <p><strong>Train No:</strong> ${data.train}</p>
+            <p><strong>Coach:</strong> ${data.coach}</p>
+            <p><strong>Seat:</strong> ${data.seat}</p>
+            <p><strong>Date:</strong> ${data.date}</p>
+            <p><strong>Time:</strong> ${data.time}</p>
+            <p><strong>From:</strong> ${data.from}</p>
+            <p><strong>To:</strong> ${data.to}</p>
+          </div>
+          <div id="qrcode"></div>
+        </div>
+        <div class="ticket-right">
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>From:</strong> ${data.from}</p>
+          <p><strong>To:</strong> ${data.to}</p>
+          <p><strong>Date:</strong> ${data.date}</p>
+          <p><strong>Time:</strong> ${data.time}</p>
+          <p><strong>Coach:</strong> ${data.coach} | <strong>Seat:</strong> ${data.seat}</p>
+        </div>
+      </div>
     </div>
   `;
 
   // Generate QR Code
   new QRCode(document.getElementById("qrcode"), {
     text: `Passenger: ${data.name}\nBooking ID: ${bookingId}\nTrain: ${data.train}\nCoach: ${data.coach}\nSeat: ${data.seat}\nFrom: ${data.from}\nTo: ${data.to}\nDate: ${data.date}\nTime: ${data.time}`,
-    width: 100,
-    height: 100
+    width: 90,
+    height: 90
   });
 
   ticketDiv.classList.remove("hidden");
