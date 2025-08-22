@@ -22,7 +22,6 @@ function generatePass() {
     <div class="ticket-wrapper">
       <div class="ticket-header">
         <span>🚆 BKN DURANTO EXP</span>
-        <span>ECONOMY</span>
         <span>BOARDING PASS</span>
       </div>
       <div class="ticket">
@@ -31,22 +30,18 @@ function generatePass() {
             <p><strong>Name:</strong> ${data.name}</p>
             <p><strong>Booking ID:</strong> ${bookingId}</p>
             <p><strong>Train No:</strong> ${data.train}</p>
-            <p><strong>Coach:</strong> ${data.coach}</p>
-            <p><strong>Seat:</strong> ${data.seat}</p>
-            <p><strong>Date:</strong> ${data.date}</p>
-            <p><strong>Time:</strong> ${data.time}</p>
-            <p><strong>From:</strong> ${data.from}</p>
-            <p><strong>To:</strong> ${data.to}</p>
+            <p><strong>Coach:</strong> ${data.coach} &nbsp; | &nbsp; <strong>Seat:</strong> ${data.seat}</p>
+            <p><strong>Date:</strong> ${data.date} &nbsp; | &nbsp; <strong>Time:</strong> ${data.time}</p>
+            <p><strong>From:</strong> ${data.from} ➝ <strong>To:</strong> ${data.to}</p>
           </div>
           <div id="qrcode"></div>
         </div>
         <div class="ticket-right">
-          <p><strong>Name:</strong> ${data.name}</p>
-          <p><strong>From:</strong> ${data.from}</p>
-          <p><strong>To:</strong> ${data.to}</p>
+          <p><strong>${data.from}</strong> ➝ <strong>${data.to}</strong></p>
           <p><strong>Date:</strong> ${data.date}</p>
           <p><strong>Time:</strong> ${data.time}</p>
-          <p><strong>Coach:</strong> ${data.coach} | <strong>Seat:</strong> ${data.seat}</p>
+          <p><strong>Coach:</strong> ${data.coach}</p>
+          <p><strong>Seat:</strong> ${data.seat}</p>
         </div>
       </div>
     </div>
@@ -55,8 +50,8 @@ function generatePass() {
   // Generate QR Code
   new QRCode(document.getElementById("qrcode"), {
     text: `Passenger: ${data.name}\nBooking ID: ${bookingId}\nTrain: ${data.train}\nCoach: ${data.coach}\nSeat: ${data.seat}\nFrom: ${data.from}\nTo: ${data.to}\nDate: ${data.date}\nTime: ${data.time}`,
-    width: 90,
-    height: 90
+    width: 80,
+    height: 80
   });
 
   ticketDiv.classList.remove("hidden");
@@ -67,11 +62,11 @@ function generatePass() {
 function downloadPDF() {
   const element = document.getElementById("boardingPass");
   const opt = {
-    margin:       0.5,
-    filename:     'boarding-pass.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2 },
-    jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+    margin: 0.5,
+    filename: 'boarding-pass.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
   };
   html2pdf().set(opt).from(element).save();
 }
