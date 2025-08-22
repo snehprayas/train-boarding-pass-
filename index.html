@@ -7,12 +7,24 @@
 </head>
 <body>
   <h1>Boarding Pass Generator</h1>
+  
   <div class="form">
     <input type="text" id="bookingId" placeholder="Booking ID (e.g., SPC101)">
     <input type="text" id="name" placeholder="Full Name">
     <button onclick="generatePass()">Generate</button>
   </div>
+  
   <div id="boardingPass" class="ticket hidden"></div>
+  
+  <div id="actions" class="hidden">
+    <button onclick="window.print()">🖨 Print Boarding Pass</button>
+    <button onclick="downloadPDF()">⬇ Download as PDF</button>
+  </div>
+
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <!-- HTML2PDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
