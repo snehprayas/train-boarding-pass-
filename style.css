@@ -29,53 +29,60 @@ button {
   cursor: pointer;
 }
 
+/* Ticket wrapper */
 .ticket-wrapper {
-  width: 750px;
+  width: 800px;
   margin: 40px auto;
   background: #fff;
   border: 4px double #E91E63; /* pink double border */
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Header */
 .ticket-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #E91E63;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 20px;
   font-size: 18px;
   font-weight: bold;
 }
 
+/* Body */
 .ticket {
   display: flex;
   position: relative;
+  height: 180px; /* shorter height */
 }
 
+/* Left (main ticket) */
 .ticket-left {
   flex: 3;
-  padding: 20px;
+  padding: 15px 20px;
   text-align: left;
   border-right: 2px dashed #ccc; /* perforation */
+  font-size: 14px;
 }
 
+/* Right (stub) */
 .ticket-right {
-  flex: 1.5;
-  padding: 20px;
+  flex: 1.3;
+  padding: 15px;
   text-align: left;
   background: #fdf6f9;
+  font-size: 14px;
 }
 
 .ticket-section p {
-  margin: 6px 0;
-  font-size: 15px;
+  margin: 4px 0;
 }
 
 #qrcode {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .hidden {
