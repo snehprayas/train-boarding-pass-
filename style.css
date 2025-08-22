@@ -22,55 +22,60 @@ h1 {
 button {
   padding: 10px 25px;
   margin: 10px;
-  background: #0078D7;
+  background: #E91E63; /* pink button */
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.ticket {
+.ticket-wrapper {
+  width: 750px;
+  margin: 40px auto;
+  background: #fff;
+  border: 4px double #E91E63; /* pink double border */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.ticket-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff;
-  border: 2px solid #0078D7;
-  border-radius: 8px;
-  width: 700px;
-  margin: 40px auto 0 auto;
-  padding: 20px 30px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: #E91E63;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ticket {
+  display: flex;
   position: relative;
 }
 
-.ticket::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  left: 50%;
-  width: 2px;
-  border-left: 2px dashed #0078D7;
-}
-
-.ticket-left, .ticket-right {
-  width: 48%;
-}
-
-.ticket h2 {
-  margin-top: 0;
-  color: #0078D7;
+.ticket-left {
+  flex: 3;
+  padding: 20px;
   text-align: left;
+  border-right: 2px dashed #ccc; /* perforation */
 }
 
-.ticket p {
-  margin: 8px 0;
-  font-size: 16px;
+.ticket-right {
+  flex: 1.5;
+  padding: 20px;
   text-align: left;
+  background: #fdf6f9;
+}
+
+.ticket-section p {
+  margin: 6px 0;
+  font-size: 15px;
 }
 
 #qrcode {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .hidden {
