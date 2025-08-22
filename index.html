@@ -2,30 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Train Boarding Pass Generator</title>
+  <title>Sneh Prayas Web Check-in</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Boarding Pass Generator</h1>
-  
   <div class="form">
-    <input type="text" id="bookingId" placeholder="Booking ID (e.g., SPC101)">
-    <input type="text" id="name" placeholder="Full Name">
-    <button onclick="generatePass()">Generate</button>
+    <h1>SNEH PRAYAS</h1>
+    <h3>WEB CHECK IN</h3>
+
+    <input type="text" id="bookingId" placeholder="Enter Booking ID" />
+    <br />
+    <input type="text" id="name" placeholder="Enter Passenger Name" />
+    <br />
+    <button onclick="generatePass()">Generate Boarding Pass</button>
   </div>
-  
+
   <div id="boardingPass" class="hidden"></div>
-  
-  <div id="actions" class="hidden">
-    <button onclick="window.print()">🖨 Print</button>
-    <button onclick="downloadPDF()">⬇ Download PDF</button>
-  </div>
 
-  <!-- QR Code Library -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-  <!-- HTML2PDF Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-
+  <script src="qrcode.min.js"></script>
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
