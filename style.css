@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  text-align: center;
+  padding: 50px;
+}
+
+.form input {
+  padding: 10px;
+  margin: 5px;
+  width: 200px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background: #0078D7;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.ticket {
+  background: #ffffff;
+  border: 2px dashed #0078D7;
+  display: inline-block;
+  text-align: left;
+  padding: 20px;
+  margin-top: 20px;
+  width: 400px;
+}
+
+.hidden {
+  display: none;
+}
