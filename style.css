@@ -1,33 +1,61 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f0f0f0;
   text-align: center;
   padding: 50px;
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #333;
 }
 
 .form input {
   padding: 10px;
   margin: 5px;
-  width: 200px;
+  width: 220px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 25px;
   margin: 10px;
   background: #0078D7;
   color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 .ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #ffffff;
-  border: 2px dashed #0078D7;
-  display: inline-block;
+  border: 2px solid #0078D7;
+  border-radius: 8px;
+  width: 700px;
+  margin: 40px auto 0 auto;
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.ticket-left, .ticket-right {
+  width: 48%;
+}
+
+.ticket h2 {
+  margin-top: 0;
+  color: #0078D7;
   text-align: left;
-  padding: 20px;
-  margin-top: 20px;
-  width: 400px;
+}
+
+.ticket p {
+  margin: 8px 0;
+  font-size: 16px;
+  text-align: left;
 }
 
 .hidden {
