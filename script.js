@@ -2,8 +2,8 @@ function generatePass() {
   const bookingId = document.getElementById("bookingId").value.trim().toUpperCase();
   const name = document.getElementById("name").value.trim();
   const ticketDiv = document.getElementById("boardingPass");
-  const actionsDiv = document.getElementById("actions");
 
+  // Clear old content
   ticketDiv.innerHTML = "";
 
   if (!bookings[bookingId]) {
@@ -19,54 +19,34 @@ function generatePass() {
   }
 
   ticketDiv.innerHTML = `
-    <div class="ticket-wrapper">
-      <div class="ticket-header">
-        <span>🚆 BKN DURANTO EXP</span>
-        <span>BOARDING PASS</span>
+    <div class="ticket">
+      <div class="ticket-left">
+        <h2>SNEH PRAYAS</h2>
+        <p><strong>Name of Passenger:</strong> ${data.name}</p>
+        <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
+        <p><strong>Date:</strong> ${data.date}</p>
+        <p><strong>Time:</strong> ${data.time}</p>
+        <p><strong>From:</strong> ${data.from}</p>
+        <p><strong>To:</strong> ${data.to}</p>
+        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
-      <div class="ticket">
-        <div class="ticket-left">
-          <div class="ticket-section">
-            <p><strong>Name:</strong> ${data.name}</p>
-            <p><strong>Booking ID:</strong> ${bookingId}</p>
-            <p><strong>Train No:</strong> ${data.train}</p>
-            <p><strong>Coach:</strong> ${data.coach} &nbsp; | &nbsp; <strong>Seat:</strong> ${data.seat}</p>
-            <p><strong>Date:</strong> ${data.date} &nbsp; | &nbsp; <strong>Time:</strong> ${data.time}</p>
-            <p><strong>From:</strong> ${data.from} ➝ <strong>To:</strong> ${data.to}</p>
-          </div>
-          <div id="qrcode"></div>
-        </div>
-        <div class="ticket-right">
-          <p><strong>${data.from}</strong> ➝ <strong>${data.to}</strong></p>
-          <p><strong>Date:</strong> ${data.date}</p>
-          <p><strong>Time:</strong> ${data.time}</p>
-          <p><strong>Coach:</strong> ${data.coach}</p>
-          <p><strong>Seat:</strong> ${data.seat}</p>
-        </div>
+
+      <div class="ticket-right">
+        <h2>BOARDING PASS</h2>
+        <div class="qr" id="qrcode"></div>
+        <p><strong>Booking ID:</strong> ${bookingId}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
       </div>
     </div>
   `;
 
-  // Generate QR Code
-  new QRCode(document.getElementById("qrcode"), {
-    text: `Passenger: ${data.name}\nBooking ID: ${bookingId}\nTrain: ${data.train}\nCoach: ${data.coach}\nSeat: ${data.seat}\nFrom: ${data.from}\nTo: ${data.to}\nDate: ${data.date}\nTime: ${data.time}`,
-    width: 80,
-    height: 80
+  // Generate QR code
+  const qrDiv = document.getElementById("qrcode");
+  new QRCode(qrDiv, {
+    text: `Booking ID: ${bookingId}\nName: ${data.name}\nTrain: BKN DURONTO EXP (${data.train})\nCoach: ${data.coach}\nSeat: ${data.seat}\nDate: ${data.date}\nTime: ${data.time}\nFrom: ${data.from}\nTo: ${data.to}`,
+    width: 100,
+    height: 100
   });
 
   ticketDiv.classList.remove("hidden");
-  actionsDiv.classList.remove("hidden");
-}
-
-// Download as PDF
-function downloadPDF() {
-  const element = document.getElementById("boardingPass");
-  const opt = {
-    margin: 0.5,
-    filename: 'boarding-pass.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
-  };
-  html2pdf().set(opt).from(element).save();
 }
