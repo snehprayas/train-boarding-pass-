@@ -1,38 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Train Boarding Pass</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Train Boarding Pass Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>Boarding Pass Generator</h1>
+  <div class="form">
+    <input type="text" id="bookingId" placeholder="Booking ID (e.g., SPC101)">
+    <input type="text" id="name" placeholder="Full Name">
+    <button onclick="generatePass()">Generate</button>
+  </div>
+  <div id="boardingPass" class="ticket hidden"></div>
 
-<div class="container" id="gate">
-    <h2>Entrance Gate</h2>
-    <input type="text" id="nameInput" placeholder="Enter Your Name" required><br><br>
-    <input type="text" id="bookingInput" placeholder="Enter Booking ID" required><br><br>
-    <button id="enterBtn">Enter</button>
-</div>
-
-<div class="container" id="boardingPassContainer" style="display:none;">
-    <div class="boarding-pass" id="boardingPass">
-        <h2>Train Boarding Pass</h2>
-        <div class="details">
-            <div><strong>Name:</strong> <span id="bpName"></span></div>
-            <div><strong>Train Number:</strong> <span id="bpTrain"></span></div>
-            <div><strong>Date:</strong> 25th September</div>
-            <div><strong>Seat:</strong> <span id="bpSeat"></span></div>
-            <div><strong>Booking ID:</strong> <span id="bpBooking"></span></div>
-        </div>
-        <div class="qr-code" id="qrcode"></div>
-        <button id="downloadBtn">Download as Image</button>
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="script.js"></script>
-
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
