@@ -17,6 +17,9 @@ function generatePass() {
     return;
   }
 
+  // Use image instead of generating QR
+  const qrPath = `${bookingId}.png`;
+
   ticketDiv.innerHTML = `
     <div class="ticket">
       <div class="ticket-left">
@@ -29,9 +32,11 @@ function generatePass() {
         <p><strong>To:</strong> ${data.to}</p>
         <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
+
       <div class="ticket-right">
         <h2>BOARDING PASS</h2>
-        <img src="${bookingId}.png" alt="QR Code" width="100" height="100"/>
+        <img src="${qrPath}" alt="QR Code" width="100" height="100"
+             onerror="this.style.display='none'; alert('QR image not found for this booking.');" />
         <p><strong>Booking ID:</strong> ${bookingId}</p>
         <p><strong>Phone:</strong> ${data.phone}</p>
       </div>
