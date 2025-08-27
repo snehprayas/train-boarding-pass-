@@ -3,7 +3,6 @@ function generatePass() {
   const name = document.getElementById("name").value.trim();
   const ticketDiv = document.getElementById("boardingPass");
 
-  // Clear old content
   ticketDiv.innerHTML = "";
 
   if (!bookings[bookingId]) {
@@ -18,7 +17,6 @@ function generatePass() {
     return;
   }
 
-  // Create the ticket HTML with an <img> for QR code
   ticketDiv.innerHTML = `
     <div class="ticket">
       <div class="ticket-left">
@@ -31,13 +29,9 @@ function generatePass() {
         <p><strong>To:</strong> ${data.to}</p>
         <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
-
       <div class="ticket-right">
         <h2>BOARDING PASS</h2>
-        <!-- Replace QRCode generation with image -->
-        <div class="qr">
-          <img src="${bookingId}.png" alt="QR Code for ${bookingId}" width="100" height="100" />
-        </div>
+        <img src="${bookingId}.png" alt="QR Code" width="100" height="100"/>
         <p><strong>Booking ID:</strong> ${bookingId}</p>
         <p><strong>Phone:</strong> ${data.phone}</p>
       </div>
