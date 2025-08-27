@@ -20,31 +20,29 @@ function generatePass() {
 
   // Create the ticket HTML with an <img> for QR code
   ticketDiv.innerHTML = `
-  <div class="ticket">
-    <div class="ticket-left">
-      <h2>SNEH PRAYAS</h2>
-      <p><strong>Name of Passenger:</strong> ${data.name}</p>
-      <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
-      <p><strong>Date:</strong> ${data.date}</p>
-      <p><strong>Time:</strong> ${data.time}</p>
-      <p><strong>From:</strong> ${data.from}</p>
-      <p><strong>To:</strong> ${data.to}</p>
-      <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
-    </div>
-
-    <div class="ticket-right">
-      <h2>BOARDING PASS</h2>
-      <div class="qr">
-        <img src="myqr.png" alt="QR Code" width="100" height="100">
+    <div class="ticket">
+      <div class="ticket-left">
+        <h2>SNEH PRAYAS</h2>
+        <p><strong>Name of Passenger:</strong> ${data.name}</p>
+        <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
+        <p><strong>Date:</strong> ${data.date}</p>
+        <p><strong>Time:</strong> ${data.time}</p>
+        <p><strong>From:</strong> ${data.from}</p>
+        <p><strong>To:</strong> ${data.to}</p>
+        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
-      <p><strong>Booking ID:</strong> ${bookingId}</p>
-      <p><strong>Phone:</strong> ${data.phone}</p>
+
+      <div class="ticket-right">
+        <h2>BOARDING PASS</h2>
+        <!-- Replace QRCode generation with image -->
+        <div class="qr">
+          <img src="${bookingId}.png" alt="QR Code for ${bookingId}" width="100" height="100" />
+        </div>
+        <p><strong>Booking ID:</strong> ${bookingId}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+      </div>
     </div>
-  </div>
-`;
+  `;
 
-
-      
   ticketDiv.classList.remove("hidden");
 }
-
