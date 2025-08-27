@@ -17,9 +17,6 @@ function generatePass() {
     return;
   }
 
-  // Use image instead of generating QR
-  const qrPath = `${bookingId}.png`;
-
   ticketDiv.innerHTML = `
     <div class="ticket">
       <div class="ticket-left">
@@ -35,13 +32,24 @@ function generatePass() {
 
       <div class="ticket-right">
         <h2>BOARDING PASS</h2>
-        <img src="${qrPath}" alt="QR Code" width="100" height="100"
-             onerror="this.style.display='none'; alert('QR image not found for this booking.');" />
+        <div class="qr" id="qrSlot"></div>
         <p><strong>Booking ID:</strong> ${bookingId}</p>
         <p><strong>Phone:</strong> ${data.phone}</p>
       </div>
     </div>
   `;
 
-  ticketDiv.classList.remove("hidden");
+  // Load QR image from your GitHub Pages site
+  const img = new Image();
+  img.width = 100;
+  img.height = 100;
+  img.alt = `QR Code ${bookingId}`;
+  img.onload = () => {
+    document.getElementById("qrSlot").appendChild(img);
+    ticketDiv.classList.remove("hidden");
+  };
+  img.onerror = () => {
+    alert(`Could not load QR image for ${bookingId}.`);
+  };
+  img.src = `https://snehprayas.github.io/train-boarding-pass-/${bookingId}.png?v=${Date.now()}`;
 }
