@@ -1,135 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Train Boarding Pass</title>
-<style>
-body {
-  font-family: 'Arial Black', sans-serif;
-  background: #ffe6ef;
-  display: flex;
-  justify-content: center;
-  padding: 50px;
-}
-.container { max-width: 750px; width: 100%; text-align: center; }
-input {
-  padding: 10px;
-  width: 80%;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-weight: bold;
-}
-button {
-  padding: 10px 20px;
-  border: none;
-  background: #ff4d88;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-weight: bold;
-}
-button:hover { background: #e6396e; }
-.boarding-pass {
-  display: flex;
-  background: #ff99b9;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  margin-top: 20px;
-  font-weight: bold;
-}
-.main-pass {
-  flex: 3;
-  padding: 20px;
-  text-align: left;
-}
-.stub {
-  flex: 1;
-  background: #ffd6e5; /* lighter pink for stub */
-  padding: 15px;
-  border-left: 2px dashed #777;
-  text-align: left;
-}
-h2, h3, h4 { margin: 0 0 10px 0; }
-.detail { margin-bottom: 8px; }
-.qr-code { margin-top: 15px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Train Boarding Pass</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <h1>Train Boarding Pass Generator</h1>
 
-<div class="container" id="gate">
-  <h2>Entrance Gate</h2>
-  <input type="text" id="nameInput" placeholder="Passenger Name"><br>
-  <input type="text" id="bookingInput" placeholder="Booking ID"><br>
-  <button id="enterBtn">Enter</button>
-</div>
-
-<div class="container" id="boardingPassContainer" style="display:none;">
-  <div class="boarding-pass" id="boardingPass">
-    <div class="main-pass">
-      <h3>TRAIN BOARDING PASS</h3>
-      <div class="detail"><strong>Name:</strong> <span id="bpName"></span></div>
-      <div class="detail"><strong>Train:</strong> 123456</div>
-      <div class="detail"><strong>From:</strong> HOWRAH</div>
-      <div class="detail"><strong>To:</strong> NEW DELHI</div>
-      <div class="detail"><strong>Date:</strong> 25th September</div>
-      <div class="detail"><strong>Seat:</strong> 13</div>
-      <div class="detail"><strong>Booking ID:</strong> <span id="bpBooking"></span></div>
-      <div class="qr-code"><img src="myqr.png" width="100" height="100"></div>
-      <!-- Replace above with your own image if needed:
-      <div class="qr-code"><img src="myqr.png" width="100" height="100"></div>
-      -->
-    </div>
-    <div class="stub">
-      <h4>TRAIN DETAILS</h4>
-      <div class="detail"><strong>Name:</strong> <span id="bpNameStub"></span></div>
-      <div class="detail"><strong>Train:</strong> 123456</div>
-      <div class="detail"><strong>Seat:</strong> 13</div>
-    </div>
+  <!-- Entrance form -->
+  <div class="form-container">
+    <input type="text" id="name" placeholder="Enter Name" required />
+    <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g. SPC101)" required />
+    <button onclick="generatePass()">Get Boarding Pass</button>
   </div>
-  <button id="downloadBtn">Download Boarding Pass</button>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-document.getElementById('enterBtn').addEventListener('click', function() {
-  const name = document.getElementById('nameInput').value.trim();
-  const bookingID = document.getElementById('bookingInput').value.trim();
+  <!-- Where the generated boarding pass will appear -->
+  <div id="boardingPass" class="hidden"></div>
 
-  if(name === "" || bookingID === "") {
-    alert("Please enter both Name and Booking ID!");
-    return;
-  }
-
-  document.getElementById('gate').style.display = "none";
-  document.getElementById('boardingPassContainer').style.display = "block";
-
-  document.getElementById('bpName').textContent = name;
-  document.getElementById('bpNameStub').textContent = name;
-  document.getElementById('bpBooking').textContent = bookingID;
-
-  const qrDiv = document.getElementById('qrcode');
-  qrDiv.innerHTML = "";
-  new QRCode(qrDiv, {
-    text: `Name:${name}, Train:123456, Seat:13, BookingID:${bookingID}, Date:25th Sep`,
-    width: 100,
-    height: 100
-  });
-});
-
-document.getElementById('downloadBtn').addEventListener('click', function() {
-  html2canvas(document.getElementById('boardingPass')).then(canvas => {
-    const link = document.createElement('a');
-    link.download = 'boarding_pass.png';
-    link.href = canvas.toDataURL();
-    link.click();
-  });
-});
-</script>
-
+  <!-- Load your data first, then the script -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
