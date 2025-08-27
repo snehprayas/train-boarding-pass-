@@ -18,6 +18,7 @@ function generatePass() {
     return;
   }
 
+  // Create the ticket HTML with an <img> for QR code
   ticketDiv.innerHTML = `
     <div class="ticket">
       <div class="ticket-left">
@@ -33,20 +34,16 @@ function generatePass() {
 
       <div class="ticket-right">
         <h2>BOARDING PASS</h2>
-        <div class="qr" id="qrcode"></div>
+        <!-- Replace QRCode generation with image -->
+        <div class="qr">
+          <img src="${bookingId}.png" alt="QR Code for ${bookingId}" width="100" height="100" />
+        </div>
         <p><strong>Booking ID:</strong> ${bookingId}</p>
         <p><strong>Phone:</strong> ${data.phone}</p>
       </div>
     </div>
   `;
 
-  // Generate QR code
-  const qrDiv = document.getElementById("qrcode");
-  new QRCode(qrDiv, {
-    text: `Booking ID: ${bookingId}\nName: ${data.name}\nTrain: BKN DURONTO EXP (${data.train})\nCoach: ${data.coach}\nSeat: ${data.seat}\nDate: ${data.date}\nTime: ${data.time}\nFrom: ${data.from}\nTo: ${data.to}`,
-    width: 100,
-    height: 100
-  });
-
   ticketDiv.classList.remove("hidden");
 }
+
