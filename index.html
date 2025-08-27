@@ -48,7 +48,7 @@ button:hover { background: #e6396e; }
 }
 .stub {
   flex: 1;
-  background: #ff80ab;
+  background: #ffd6e5; /* lighter pink for stub */
   padding: 15px;
   border-left: 2px dashed #777;
   text-align: left;
@@ -78,12 +78,15 @@ h2, h3, h4 { margin: 0 0 10px 0; }
       <div class="detail"><strong>Date:</strong> 25th September</div>
       <div class="detail"><strong>Seat:</strong> 12</div>
       <div class="detail"><strong>Booking ID:</strong> <span id="bpBooking"></span></div>
-      <div class="qr-code" id="qrcode"></div>
+      <div class="qr-code"><img src="myqr.png" width="100" height="100"></div>
+      <!-- Replace above with your own image if needed:
+      <div class="qr-code"><img src="myqr.png" width="100" height="100"></div>
+      -->
     </div>
     <div class="stub">
       <h4>Stub</h4>
       <div class="detail"><strong>Name:</strong> <span id="bpNameStub"></span></div>
-      <div class="detail"><strong>Train:</strong> 123456</div>
+      <div class="detail"><strong>Train:</strong> TN123456</div>
       <div class="detail"><strong>Seat:</strong> 12</div>
     </div>
   </div>
