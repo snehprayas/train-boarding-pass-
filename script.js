@@ -44,18 +44,7 @@ function generatePass() {
 `;
 
 
-      <div class="ticket-right">
-        <h2>BOARDING PASS</h2>
-        <!-- Replace QRCode generation with image -->
-        <div class="qr">
-          <img src="${bookingId}.png" alt="QR Code for ${bookingId}" width="100" height="100" />
-        </div>
-        <p><strong>Booking ID:</strong> ${bookingId}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-      </div>
-    </div>
-  `;
-
+      
   ticketDiv.classList.remove("hidden");
 }
 
