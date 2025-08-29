@@ -17,26 +17,45 @@ function generatePass() {
     return;
   }
 
-  ticketDiv.innerHTML = `
-    <div class="ticket">
-      <div class="ticket-left">
-        <h2>SNEH PRAYAS</h2>
-        <p><strong>Name of Passenger:</strong> ${data.name}</p>
-        <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
-        <p><strong>Date:</strong> ${data.date}</p>
-        <p><strong>Time:</strong> ${data.time}</p>
-        <p><strong>From:</strong> ${data.from}</p>
-        <p><strong>To:</strong> ${data.to}</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
-      </div>
-
-      <div class="ticket-right">
-        <h2>BOARDING PASS</h2>
-        <div class="qr" id="qrSlot"></div>
-        <p><strong>Booking ID:</strong> ${bookingId}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-      </div>
+ ticketDiv.innerHTML = `
+  <div class="ticket">
+    
+    <!-- First Part -->
+    <div class="ticket-part">
+      <h2>SNEH PRAYAS</h2>
+      <p><strong>Name of Passenger:</strong> ${data.name}</p>
+      <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
+      <p><strong>Date:</strong> ${data.date}</p>
+      <p><strong>Time:</strong> ${data.time}</p>
+      <p><strong>From:</strong> ${data.from}</p>
+      <p><strong>To:</strong> ${data.to}</p>
+      <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
     </div>
+
+    <!-- Second Part: Return Journey NDLS → HWH -->
+    <div class="ticket-part">
+      <h2>RETURN JOURNEY</h2>
+      <p><strong>From:</strong> New Delhi</p>
+      <p><strong>To:</strong> Howrah</p>
+      <p><strong>Train No:</strong> 54321</p>
+      <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
+    </div>
+
+    <!-- Third Part: Return Journey HWH → NDLS -->
+    <div class="ticket-part">
+      <h2>RETURN JOURNEY</h2>
+      <p><strong>From:</strong> Howrah</p>
+      <p><strong>To:</strong> New Delhi</p>
+      <p><strong>Train No:</strong> 12345</p>
+      <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
+      <div class="qr" id="qrSlot"></div>
+      <p><strong>Booking ID:</strong> ${bookingId}</p>
+      <p><strong>Phone:</strong> ${data.phone}</p>
+    </div>
+
+  </div>
+`;
+
     <button onclick="downloadPDF()">Download as PDF</button>
   `;
 
