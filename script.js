@@ -18,17 +18,17 @@ function generatePass() {
   }
 
   // ✅ Hide gateway after successful validation
-  document.getElementById("gateway").style.display = "none";
+  document.getElementById("gateway").classList.add("hidden");
 
   // ✅ Ticket HTML with 3 parts
   ticketDiv.innerHTML = `
-    <h1 class="main-title">BOARDING PASS</h1>
+    <h1 class="page-title">BOARDING PASS</h1>
     <div class="ticket">
 
-      <!-- First Part -->
-      <div class="ticket-part">
+      <!-- First Part (main details) -->
+      <div class="ticket-part main">
         <h2>SNEH PRAYAS</h2>
-        <p><strong>Name of Passenger:</strong> ${data.name}</p>
+        <p><strong>Passenger:</strong> ${data.name}</p>
         <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
@@ -37,39 +37,41 @@ function generatePass() {
         <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
 
-      <!-- Second Part: Return Journey NDLS → HWH -->
-      <div class="ticket-part">
-        <h2>RETURN JOURNEY</h2>
+      <!-- Second Part: Return NDLS → HWH -->
+      <div class="ticket-part stub">
+        <h2>RETURN</h2>
         <p><strong>From:</strong> New Delhi</p>
         <p><strong>To:</strong> Howrah</p>
         <p><strong>Train No:</strong> 54321</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
+        <p><strong>Coach:</strong> ${data.coach}</p>
+        <p><strong>Seat:</strong> ${data.seat}</p>
       </div>
 
-      <!-- Third Part: Return Journey HWH → NDLS -->
-      <div class="ticket-part">
-        <h2>RETURN JOURNEY</h2>
+      <!-- Third Part: Return HWH → NDLS -->
+      <div class="ticket-part stub">
+        <h2>RETURN</h2>
         <p><strong>From:</strong> Howrah</p>
         <p><strong>To:</strong> New Delhi</p>
         <p><strong>Train No:</strong> 12345</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
+        <p><strong>Coach:</strong> ${data.coach}</p>
+        <p><strong>Seat:</strong> ${data.seat}</p>
         <div class="qr" id="qrSlot"></div>
-        <p><strong>Booking ID:</strong> ${bookingId}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
+        <p class="meta"><strong>Booking ID:</strong> ${bookingId}</p>
+        <p class="meta"><strong>Phone:</strong> ${data.phone}</p>
       </div>
 
     </div>
 
     <!-- ✅ Proper Download Button -->
-    <button onclick="downloadPDF()">Download as PDF</button>
+    <button class="button" onclick="downloadPDF()">Download as PDF</button>
   `;
 
-  // Load QR image
+  // ✅ Load QR dynamically
   const img = new Image();
   img.width = 100;
   img.height = 100;
   img.alt = `QR Code ${bookingId}`;
-  img.crossOrigin = "anonymous"; // important for PDF rendering
+  img.crossOrigin = "anonymous"; // needed for html2canvas
   img.onload = () => {
     document.getElementById("qrSlot").appendChild(img);
     ticketDiv.classList.remove("hidden");
@@ -90,7 +92,7 @@ function downloadPDF() {
     return;
   }
 
-  // Use html2canvas to capture the ticket as image
+  // Capture ticket with html2canvas
   html2canvas(ticketEl, {
     scale: 2,
     useCORS: true,
