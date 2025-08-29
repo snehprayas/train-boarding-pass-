@@ -2,63 +2,38 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #ffe6f0; /* light pink background */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
   margin: 0;
-}
-
-.ticket {
-  display: flex;
-  max-width: 800px;
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  margin-top: 20px;
-}
-
-.ticket-left {
-  flex: 2;
   padding: 20px;
-  background: linear-gradient(135deg, #ffcce0, #fff);
 }
 
-.ticket-left h2 {
-  margin: 0 0 15px 0;
-  color: #d63384;
-  font-size: 22px;
-}
-
-.ticket-left p {
-  margin: 6px 0;
-  font-size: 14px;
-}
-
-.ticket-right {
-  flex: 1.2;
-  padding: 20px;
-  background: linear-gradient(135deg, #d63384, #ff6699);
-  color: white;
+/* Title at top */
+.main-title {
   text-align: center;
-  position: relative;
+  font-size: 28px;
+  color: #d63384;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
-
-.ticket-right h2 {
-  margin-bottom: 15px;
-}
+/* Boarding Pass container */
 .ticket {
   display: flex;
   justify-content: space-between;
   max-width: 1000px;
   background: white;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  margin-top: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  margin-top: 10px;
+  position: relative;
 }
 
+/* Each ticket part */
 .ticket-part {
   flex: 1;
   padding: 20px;
@@ -66,29 +41,43 @@ body {
   position: relative;
 }
 
+/* Divider between stubs */
 .ticket-part:not(:last-child) {
-  border-right: 2px dashed #d63384; /* separator like real ticket */
+  border-right: 2px dashed #d63384;
 }
 
+/* Section headings */
 .ticket-part h2 {
   color: #d63384;
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f1c2d1;
+  padding-bottom: 5px;
 }
 
+/* Passenger & Journey text */
+.ticket-part p {
+  margin: 6px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* QR Section */
 .qr {
   background: white;
-  padding: 8px;
+  padding: 10px;
   border-radius: 12px;
   display: inline-block;
-  margin-top: 10px;
+  margin: 10px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+/* Download button */
 button {
-  margin-top: 15px;
-  padding: 12px 18px;
+  margin-top: 20px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   background: linear-gradient(135deg, #ff6699, #d63384);
   color: white;
   font-weight: bold;
@@ -99,4 +88,26 @@ button {
 button:hover {
   transform: scale(1.05);
   opacity: 0.9;
+}
+
+/* ✂️ Perforated stub effect */
+.ticket::before,
+.ticket::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ffe6f0;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.ticket::before {
+  left: -10px;
+}
+
+.ticket::after {
+  right: -10px;
 }
