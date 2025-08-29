@@ -1,3 +1,11 @@
+/* -------------------------
+   Boarding pass full stylesheet
+   - main section larger
+   - two detachable stubs smaller
+   - perforated / notch effect
+   - responsive / mobile friendly
+   ------------------------- */
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #ffe6f0; /* light pink background */
@@ -7,107 +15,245 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  padding: 20px;
+  padding: 24px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-/* Title at top */
-.main-title {
+/* Container + top title */
+.container, .gateway {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h1.page-title {
   text-align: center;
-  font-size: 28px;
   color: #d63384;
+  font-size: 28px;
   font-weight: 700;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
+  margin: 8px 0 18px;
+  letter-spacing: 1.5px;
 }
 
-/* Boarding Pass container */
+/* Gateway / form area */
+.gateway {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gateway input,
+.form input {
+  padding: 10px 12px;
+  border: 2px solid #f7c7da;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 230px;
+  outline: none;
+  transition: box-shadow .15s ease, transform .12s ease;
+}
+
+.gateway input:focus,
+.form input:focus {
+  box-shadow: 0 6px 18px rgba(214,51,132,0.12);
+  transform: translateY(-1px);
+}
+
+/* Buttons (Generate / Download) */
+.button,
+.gateway button,
+button {
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#ff6699,#d63384);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .14s ease, opacity .12s ease;
+}
+.button:hover,
+.gateway button:hover,
+button:hover { transform: translateY(-2px); opacity: .95; }
+
+/* Hidden helper */
+.hidden { display: none !important; }
+
+/* ---------- Ticket layout ---------- */
 .ticket {
   display: flex;
+  align-items: stretch;
   justify-content: space-between;
+  width: 100%;
   max-width: 1000px;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  margin-top: 10px;
+  background: #fff;
+  border-radius: 18px;
+  overflow: visible; /* allow notches to show */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  margin: 22px auto;
   position: relative;
 }
 
-/* Each ticket part */
+/* Each part */
 .ticket-part {
-  flex: 1;
-  padding: 20px;
-  text-align: center;
   position: relative;
+  padding: 22px;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  background: linear-gradient(180deg,#fff,#fff);
+  min-width: 0;
 }
 
-/* Divider between stubs */
+/* Main larger section (left) */
+.ticket-part.main {
+  flex: 2.2; /* bigger main */
+  background: linear-gradient(135deg,#fff0f6,#fff);
+}
+
+/* Smaller detachable stubs */
+.ticket-part.stub {
+  flex: 0.9;  /* smaller stub */
+  background: linear-gradient(180deg,#fff6fb,#fff0f6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* dashed separator between parts */
 .ticket-part:not(:last-child) {
-  border-right: 2px dashed #d63384;
+  border-right: 2px dashed #eaa1c3;
 }
 
-/* Section headings */
+/* Section heading */
 .ticket-part h2 {
   color: #d63384;
-  font-size: 18px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid #f1c2d1;
-  padding-bottom: 5px;
+  font-size: 16px;
+  margin: 0 0 10px;
+  font-weight: 700;
 }
 
-/* Passenger & Journey text */
+/* text lines */
 .ticket-part p {
   margin: 6px 0;
+  line-height: 1.35;
   font-size: 14px;
-  line-height: 1.4;
 }
 
-/* QR Section */
+/* QR box */
 .qr {
-  background: white;
-  padding: 10px;
-  border-radius: 12px;
+  margin: 12px 0;
   display: inline-block;
-  margin: 10px auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #fff;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* Download button */
-button {
-  margin-top: 20px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #ff6699, #d63384);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+.qr img {
+  display: block;
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
 }
 
-button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+/* booking info in stub */
+.ticket-part .meta {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #555;
 }
 
-/* ✂️ Perforated stub effect */
-.ticket::before,
-.ticket::after {
-  content: '';
+/* Download button area flush to center */
+.ticket + button {
+  display: block;
+  margin: 12px auto 36px;
+}
+
+/* ---------- Perforation / notch effect ---------- */
+/* circular notches on inner edges to mimic tear-off */
+.ticket-part:not(:last-child)::after {
+  content: "";
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #ffe6f0;
-  border-radius: 50%;
+  right: -14px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
+  width: 28px;
+  height: 28px;
+  background: #ffe6f0; /* page bg color to simulate hole */
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px #fff; /* white ring to simulate paper edge */
+  z-index: 5;
 }
 
-.ticket::before {
-  left: -10px;
+/* notch on left side so adjacent stub also matches */
+.ticket-part:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: #ffe6f0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px #fff;
+  z-index: 5;
 }
 
+/* subtle perforation shadow on ticket edges */
 .ticket::after {
-  right: -10px;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 18px;
+  background: linear-gradient(to top, rgba(0,0,0,0.03), transparent);
+  pointer-events: none;
+}
+
+/* ---------- Responsive: stack vertically on small screens ---------- */
+@media (max-width: 880px) {
+  .ticket {
+    flex-direction: column;
+    border-radius: 14px;
+  }
+
+  .ticket-part:not(:last-child) {
+    border-right: none;
+    border-bottom: 2px dashed #eaa1c3;
+  }
+
+  .ticket-part:not(:last-child)::after,
+  .ticket-part:not(:first-child)::before {
+    display: none; /* hide notches on stacked layout */
+  }
+
+  .gateway input,
+  .form input {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .ticket-part.main,
+  .ticket-part.stub {
+    flex: none;
+    width: 100%;
+  }
+
+  .qr img { width: 84px; height: 84px; }
 }
