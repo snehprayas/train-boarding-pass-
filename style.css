@@ -44,8 +44,36 @@ body {
   position: relative;
 }
 
+
 .ticket-right h2 {
   margin-bottom: 15px;
+}
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.ticket-part {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.ticket-part:not(:last-child) {
+  border-right: 2px dashed #d63384; /* separator like real ticket */
+}
+
+.ticket-part h2 {
+  color: #d63384;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .qr {
@@ -53,7 +81,7 @@ body {
   padding: 8px;
   border-radius: 12px;
   display: inline-block;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 button {
