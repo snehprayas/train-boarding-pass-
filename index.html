@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Train Boarding Pass</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Boarding Pass Generator</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- html2canvas + jsPDF (for PDF export) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <h1>Train Boarding Pass Generator</h1>
+  <div class="container">
+    <h1>🎫 Train Boarding Pass</h1>
 
-  <!-- Entrance form -->
-  <div class="form-container">
-    <input type="text" id="name" placeholder="Enter Name" required />
-    <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g. SPC101)" required />
-    <button onclick="generatePass()">Get Boarding Pass</button>
+    <div class="form">
+      <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g. SPC101)">
+      <input type="text" id="name" placeholder="Enter Passenger Name">
+      <button onclick="generatePass()">Generate Boarding Pass</button>
+    </div>
+
+    <div id="boardingPass" class="hidden"></div>
   </div>
 
-  <!-- Where the generated boarding pass will appear -->
-  <div id="boardingPass" class="hidden"></div>
-
-  <!-- Load your data first, then the script -->
   <script src="data.js"></script>
   <script src="script.js"></script>
-  <!-- jsPDF library -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-
 </body>
 </html>
