@@ -46,8 +46,31 @@ function generatePass() {
   img.alt = `QR Code ${bookingId}`;
   img.onload = () => {
     document.getElementById("qrSlot").appendChild(img);
+
+    // After boarding pass is generated
+ticketDiv.innerHTML += `
+  <button onclick="downloadPDF()">Download as PDF</button>
+`;
+
     ticketDiv.classList.remove("hidden");
   };
+  function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // Grab the pass section
+  const pass = document.getElementById("boardingPass");
+
+  doc.html(pass, {
+    callback: function (doc) {
+      doc.save("boarding-pass.pdf");
+    },
+    x: 10,
+    y: 10,
+    width: 180
+  });
+}
+
   img.onerror = () => {
     alert(`Could not load QR image for ${bookingId}.`);
   };
