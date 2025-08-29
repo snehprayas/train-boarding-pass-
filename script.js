@@ -37,42 +37,44 @@ function generatePass() {
         <p><strong>Phone:</strong> ${data.phone}</p>
       </div>
     </div>
+    <button onclick="downloadPDF()">Download as PDF</button>
   `;
 
-  // Load QR image from your GitHub Pages site
+  // Load QR image
   const img = new Image();
   img.width = 100;
   img.height = 100;
   img.alt = `QR Code ${bookingId}`;
+  img.crossOrigin = "anonymous"; // important for PDF rendering
   img.onload = () => {
     document.getElementById("qrSlot").appendChild(img);
-
-    // After boarding pass is generated
-ticketDiv.innerHTML += `
-  <button onclick="downloadPDF()">Download as PDF</button>
-`;
-
     ticketDiv.classList.remove("hidden");
   };
-  function downloadPDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-
-  // Grab the pass section
-  const pass = document.getElementById("boardingPass");
-
-  doc.html(pass, {
-    callback: function (doc) {
-      doc.save("boarding-pass.pdf");
-    },
-    x: 10,
-    y: 10,
-    width: 180
-  });
-}
-
   img.onerror = () => {
     alert(`Could not load QR image for ${bookingId}.`);
   };
   img.src = `https://snehprayas.github.io/train-boarding-pass-/${bookingId}.png?v=${Date.now()}`;
+}
+
+// ✅ Global function (outside generatePass)
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const ticketEl = document.querySelector("#boardingPass .ticket");
+
+  if (!ticketEl) {
+    alert("No ticket to download yet.");
+    return;
+  }
+
+  // Use html2canvas to capture the ticket as image
+  html2canvas(ticketEl, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: "#ffffff"
+  }).then(canvas => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("landscape", "pt", [canvas.width, canvas.height]);
+    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+    pdf.save("boarding-pass.pdf");
+  });
 }
