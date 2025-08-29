@@ -1,89 +1,74 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f0f0;
-  text-align: center;
-  padding: 50px;
+  font-family: 'Poppins', sans-serif;
+  background: #ffe6f0; /* light pink background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   margin: 0;
 }
 
-.form input {
-  padding: 10px;
-  margin: 5px;
-  width: 220px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px 25px;
-  margin: 10px;
-  background: #E91E63;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Centered headers */
-.form h1 {
-  color: #E91E63;
-  margin-bottom: 5px;
-  text-align: center;
-}
-
-.form h3 {
-  color: #333;
-  margin-top: 0;
-  font-weight: normal;
-  text-align: center;
-}
-
-/* Boarding pass style */
 .ticket {
   display: flex;
-  background: #ffffff;
-  border: 3px solid #E91E63;   /* Pink border */
-  border-radius: 10px;
-  width: 750px;
-  height: 220px;
-  margin: 40px auto 0 auto;
-  padding: 20px 30px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.ticket-left {
+  flex: 2;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffcce0, #fff);
+}
+
+.ticket-left h2 {
+  margin: 0 0 15px 0;
+  color: #d63384;
+  font-size: 22px;
+}
+
+.ticket-left p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.ticket-right {
+  flex: 1.2;
+  padding: 20px;
+  background: linear-gradient(135deg, #d63384, #ff6699);
+  color: white;
+  text-align: center;
   position: relative;
 }
 
-/* Dashed divider */
-.ticket::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 50%;
-  width: 2px;
-  border-left: 2px dashed #bbb;
-}
-
-/* Two halves */
-.ticket-left, .ticket-right {
-  width: 50%;
-  text-align: left;
-  padding: 0 20px;
-}
-
-.ticket h2 {
-  margin-top: 0;
-  color: #E91E63;
-}
-
-.ticket p {
-  margin: 6px 0;
-  font-size: 15px;
+.ticket-right h2 {
+  margin-bottom: 15px;
 }
 
 .qr {
-  margin-top: 10px;
+  background: white;
+  padding: 8px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
-.hidden {
-  display: none;
+button {
+  margin-top: 15px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff6699, #d63384);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
