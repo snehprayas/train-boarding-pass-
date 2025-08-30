@@ -155,7 +155,7 @@ button:hover {
 /* Continuous "SNEH PRAYAS" across all sections inside one unified border */
 .ticket::before {
   content: "SNEH PRAYAS";
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
