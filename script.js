@@ -45,7 +45,7 @@ function generatePass() {
         <p><strong>Train No:</strong> 54321</p>
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
+        <p><strong>Coach:</strong> ${data.coach} &nbsp;<BR> <strong>Seat:</strong> ${data.seat}</p>
       </div>
 
       <!-- RIGHT PART: Onward Journey (Now swapped) -->
@@ -56,7 +56,7 @@ function generatePass() {
         <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
+        <p><strong>Coach:</strong> ${data.coach} &nbsp;<BR> <strong>Seat:</strong> ${data.seat}</p>
       </div>
 
     </div>
