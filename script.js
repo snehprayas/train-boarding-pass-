@@ -29,12 +29,12 @@ function generatePass() {
 
       <!-- LEFT PART: QR + Booking ID + Name + Phone + Gender -->
       <div class="ticket-part stub"><br>
-        <div class="qr" id="qrSlot"></div>
         <p><strong>Booking ID:</strong> ${bookingId}</p>
         <p><strong>Name:</strong> ${data.name}</p>
         <p><strong>Phone:</strong> ${data.phone}</p>
         <p><strong>Gender:</strong> ${data.gender}</p>
-      </div>
+      <div class="qr" id="qrSlot"></div>
+        </div>
 
       <!-- MAIN PART: Return Journey (Now swapped) -->
       <div class="ticket-part main"><br>
