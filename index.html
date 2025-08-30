@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boarding Pass</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sneh Prayas — Boarding Pass</title>
+
+  <!-- main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="gateway">
-    <input type="text" id="bookingId" placeholder="Enter Booking ID (SPC101)">
-    <input type="text" id="name" placeholder="Enter Name">
-    <button onclick="generatePass()">Generate Pass</button>
+  <div class="container">
+    <!-- Page title -->
+    <h1 class="page-title">SNEH PRAYAS — BOARDING PASS</h1>
+
+    <!-- Gateway / entrance form (will be hidden after successful generate) -->
+    <div id="gateway" class="gateway" role="region" aria-label="Booking gateway">
+      <div class="form" role="form" aria-label="Enter booking details">
+        <input
+          type="text"
+          id="bookingId"
+          placeholder="Enter Booking ID (SPC101)"
+          autocomplete="off"
+          aria-label="Booking ID"
+        />
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter Passenger Name"
+          autocomplete="name"
+          aria-label="Passenger name"
+        />
+        <button class="button" onclick="generatePass()" aria-label="Generate boarding pass">Generate Pass</button>
+      </div>
+    </div>
+
+    <!-- Generated boarding pass appears here -->
+    <div id="boardingPass" class="hidden" aria-live="polite"></div>
   </div>
 
-  <div id="boardingPass" class="hidden"></div>
-
-  <!-- Libraries -->
+  <!-- Libraries (must be loaded before your script.js) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  <!-- Booking Data + Script -->
+  <!-- Data and logic -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
