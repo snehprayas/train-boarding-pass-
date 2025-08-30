@@ -152,11 +152,7 @@ button:hover {
   border-right: 2px dashed var(--perforation);
 }
 
-/* Continuous background for all three sections */
-.ticket {
-  position: relative;
-}
-
+/* Continuous "SNEH PRAYAS" across all sections inside one unified border */
 .ticket::before {
   content: "SNEH PRAYAS";
   font-size: 16px;
@@ -171,9 +167,13 @@ button:hover {
   left: 0;
   right: 0;
   z-index: 1;
-  border-radius: 10px 10px 0 0; /* Rounded top corners */
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between; /* Spread across the entire width */
+  align-items: center;
 }
 
+/* Adjust the content for each section to maintain the layout */
 .ticket-part p {
   margin: 6px 0;
   line-height: 1.35;
