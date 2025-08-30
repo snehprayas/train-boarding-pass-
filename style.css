@@ -153,11 +153,12 @@ z-index: 10;
   background: linear-gradient(135deg, var(--pink-200), #fff);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 6px;
-  align-items: flex-start;
+  align-items: center;
   min-height: 250px;
   max-height: auto;
+  text-align: center;
 }
 
 .ticket-part.stub {
@@ -168,6 +169,8 @@ z-index: 10;
   justify-content: center;
   align-items: center;
   text-align: center;
+   min-height: 250px;
+  max-height: auto;
 }
 
 .ticket-part:not(:last-child) {
