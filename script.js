@@ -42,7 +42,7 @@ function generatePass() {
 
         <p><strong>From:</strong> ${data.from}</p>
         <p><strong>To:</strong> ${data.to}</p>
-        <p><strong>Train No:</strong> 54321</p>
+        <p><strong>Train No:</strong> SDAH DURANTO (12260)</p>
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
         <p><strong>Coach:</strong> ${data.coach} &nbsp;<BR><BR> <strong>Seat:</strong> ${data.seat}</p>
@@ -53,10 +53,10 @@ function generatePass() {
 
         <p><strong>From:</strong> ${data.to}</p>
         <p><strong>To:</strong> ${data.from}</p>
-        <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
+        <p><strong>Train:</strong> BKN DURONTO EXP (12259)</p>
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp;<BR> <BR> <strong>Seat:</strong> ${data.seat}</p>
+        <p><strong>Coach:</strong> ${data.coach} &nbsp;</p> <p> <strong>Seat:</strong> ${data.seat}</p>
       </div>
 
     </div>
