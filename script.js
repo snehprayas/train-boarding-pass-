@@ -1,10 +1,13 @@
+// script.js
+
 function generatePass() {
   const bookingId = document.getElementById("bookingId").value.trim().toUpperCase();
-  const name = document.getElementById("name").value.trim();
+  const nameInput = document.getElementById("name").value.trim();
   const ticketDiv = document.getElementById("boardingPass");
 
   ticketDiv.innerHTML = "";
 
+  // ✅ Check if booking exists
   if (!bookings[bookingId]) {
     alert("Booking ID not found.");
     return;
@@ -12,7 +15,8 @@ function generatePass() {
 
   const data = bookings[bookingId];
 
-  if (data.name.toLowerCase() !== name.toLowerCase()) {
+  // ✅ Validate name (case-insensitive)
+  if (data.name.toLowerCase() !== nameInput.toLowerCase()) {
     alert("Name does not match booking.");
     return;
   }
@@ -20,40 +24,33 @@ function generatePass() {
   // ✅ Hide input form
   document.getElementById("gateway").style.display = "none";
 
-  // ✅ Ticket Layout: 3 rectangular parts
+  // ✅ Ticket Layout (Rectangular 3-part ticket)
   ticketDiv.innerHTML = `
     <h1 class="main-title">BOARDING PASS</h1>
     <div class="ticket">
 
-      <!-- MAIN PART: Passenger Info + QR + Booking ID + Phone -->
-      <div class="ticket-part main">
+      <!-- LEFT PART: QR + Booking ID + Name + Phone + Gender -->
+      <div class="ticket-part stub">
         <h2>SNEH PRAYAS</h2>
+        <div class="qr" id="qrSlot"></div>
+        <p><strong>Booking ID:</strong> ${bookingId}</p>
         <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+        <p><strong>Gender:</strong> ${data.gender}</p>
+      </div>
+
+      <!-- MAIN PART: Journey Details -->
+      <div class="ticket-part main">
+        <h2>ONWARD JOURNEY</h2>
+        <p><strong>From:</strong> ${data.from}</p>
+        <p><strong>To:</strong> ${data.to}</p>
         <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
-        <p><strong>From:</strong> ${data.from}</p>
-        <p><strong>To:</strong> ${data.to}</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
-        <div class="qr" id="qrSlot"></div>
-        <div class="meta">
-          <p><strong>Booking ID:</strong> ${bookingId}</p>
-          <p><strong>Phone:</strong> ${data.phone}</p>
-        </div>
-      </div>
-
-      <!-- STUB 1: Onward Journey -->
-      <div class="ticket-part stub">
-        <h2>ONWARD</h2>
-        <p><strong>From:</strong> ${data.from}</p>
-        <p><strong>To:</strong> ${data.to}</p>
-        <p><strong>Train No:</strong> ${data.train}</p>
-        <p><strong>Date:</strong> ${data.date}</p>
-        <p><strong>Time:</strong> ${data.time}</p>
         <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
 
-      <!-- STUB 2: Return Journey -->
+      <!-- RIGHT PART: Return Journey -->
       <div class="ticket-part stub">
         <h2>RETURN</h2>
         <p><strong>From:</strong> ${data.to}</p>
@@ -63,27 +60,32 @@ function generatePass() {
         <p><strong>Time:</strong> ${data.time}</p>
         <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
+
     </div>
 
     <button onclick="downloadPDF()">Download as PDF</button>
   `;
 
-  // ✅ Load QR image
+  // ✅ Load QR image (from your GitHub repo)
   const img = new Image();
   img.width = 100;
   img.height = 100;
   img.alt = `QR Code ${bookingId}`;
   img.crossOrigin = "anonymous";
+
   img.onload = () => {
     document.getElementById("qrSlot").appendChild(img);
     ticketDiv.classList.remove("hidden");
   };
+
   img.onerror = () => {
     alert(`Could not load QR image for ${bookingId}.`);
   };
+
   img.src = `https://snehprayas.github.io/train-boarding-pass-/${bookingId}.png?v=${Date.now()}`;
 }
 
+// ✅ Download as PDF
 function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const ticketEl = document.querySelector("#boardingPass");
