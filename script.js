@@ -28,7 +28,7 @@ function generatePass() {
     <div class="ticket">
 
       <!-- LEFT PART: QR + Booking ID + Name + Phone + Gender -->
-      <div class="ticket-part stub">
+      <div class="ticket-part stub"><br>
 
         <div class="qr" id="qrSlot"></div>
         <p><strong>Booking ID:</strong> ${bookingId}</p>
@@ -38,7 +38,7 @@ function generatePass() {
       </div>
 
       <!-- MAIN PART: Return Journey (Now swapped) -->
-      <div class="ticket-part main">
+      <div class="ticket-part main"><br>
 
         <p><strong>From:</strong> ${data.from}</p>
         <p><strong>To:</strong> ${data.to}</p>
@@ -49,7 +49,7 @@ function generatePass() {
       </div>
 
       <!-- RIGHT PART: Onward Journey (Now swapped) -->
-      <div class="ticket-part stub">
+      <div class="ticket-part stub"><br>
 
         <p><strong>From:</strong> ${data.to}</p>
         <p><strong>To:</strong> ${data.from}</p>
