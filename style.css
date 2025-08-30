@@ -208,4 +208,58 @@ button:hover { transform: translateY(-2px); opacity: .95; }
   transform: translateY(-50%);
   width: 28px;
   height: 28px;
-  background: var(--pink-100
+  background: var(--pink-100);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px #fff;
+  z-index: 5;
+}
+
+.ticket::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 18px;
+  background: linear-gradient(to top, rgba(0,0,0,0.03), transparent);
+  pointer-events: none;
+}
+
+@media (max-width: 880px) {
+  .ticket {
+    flex-direction: column;
+    border-radius: 14px;
+  }
+
+  .ticket-part:not(:last-child) {
+    border-right: none;
+    border-bottom: 2px dashed var(--perforation);
+  }
+
+  .ticket-part:not(:last-child)::after,
+  .ticket-part:not(:first-child)::before {
+    display: none;
+  }
+
+  .gateway input,
+  .form input {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .ticket-part.main,
+  .ticket-part.stub {
+    flex: none;
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .qr img { width: 84px; height: 84px; }
+}
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .gateway, .ticket + button { display: none !important; }
+  .ticket { box-shadow: none; border-radius: 6px; border: 1px solid #e6e6e6;}
+}
