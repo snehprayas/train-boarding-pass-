@@ -130,7 +130,7 @@ right: 0;
 height: 36px;
 border-radius: 10px 10px 0 0;
 display: flex;
-justify-content: space-around; /* spaces out across the 3 parts */
+
 align-items: left;
 z-index: 10;
 }
