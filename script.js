@@ -24,7 +24,7 @@ function generatePass() {
 
   // ✅ Ticket Layout (Rectangular 3-part ticket)
   ticketDiv.innerHTML = `
-    <h1 class="main-title">SNEH PRAYAS — BOARDING PASS</h1>
+    
     <div class="ticket">
 
       <!-- LEFT PART: QR + Booking ID + Name + Phone + Gender -->
