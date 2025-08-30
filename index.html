@@ -2,29 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Boarding Pass Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boarding Pass</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- html2canvas + jsPDF (for PDF export) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>🎫 Train Boarding Pass</h1>
-
-    <div class="form">
-      <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g. SPC101)">
-      <input type="text" id="name" placeholder="Enter Passenger Name">
-      <button onclick="generatePass()">Generate Boarding Pass</button>
-    </div>
-
-    <div id="boardingPass" class="hidden"></div>
+  <div id="gateway">
+    <input type="text" id="bookingId" placeholder="Enter Booking ID (SPC101)">
+    <input type="text" id="name" placeholder="Enter Name">
+    <button onclick="generatePass()">Generate Pass</button>
   </div>
 
+  <div id="boardingPass" class="hidden"></div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Booking Data + Script -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
