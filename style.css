@@ -138,15 +138,16 @@ button:hover {
 .ticket-part {
   position: relative;
   padding: 22px;
-  text-align: left;
+  text-align: center;
   font-size: 14px;
   color: var(--text);
   background: linear-gradient(180deg, #fff, #fff);
   min-width: 0;
+  flex: 1;
 }
 
 .ticket-part.main {
-  flex: 2.2;
+  
   background: linear-gradient(135deg, var(--pink-200), #fff);
   display: flex;
   flex-direction: column;
@@ -158,7 +159,7 @@ button:hover {
 }
 
 .ticket-part.stub {
-  flex: 0.9;
+  
   background: linear-gradient(180deg, #fff6fb, #fff0f6);
   display: flex;
   flex-direction: column;
