@@ -28,8 +28,7 @@ function generatePass() {
     <div class="ticket">
 
       <!-- LEFT PART: QR + Booking ID + Name + Phone + Gender -->
-      
-        <div class="ticket-header">SNEH PRAYAS</div>
+      <div class="ticket-part stub"><br>
         <div class="qr" id="qrSlot"></div>
         <p><strong>Booking ID:</strong> ${bookingId}</p>
         <p><strong>Name:</strong> ${data.name}</p>
@@ -38,8 +37,8 @@ function generatePass() {
       </div>
 
       <!-- MAIN PART: Return Journey (Now swapped) -->
-      
-        <div class="ticket-header">SNEH PRAYAS</div>
+      <div class="ticket-part main"><br>
+       
         <p><strong>From:</strong> NEW DELHI </p>
         <p><strong>To:</strong> HOWRAH </p>
         <p><strong>Train No:</strong> SDAH DURANTO (12260)</p>
@@ -51,7 +50,7 @@ function generatePass() {
 
       <!-- RIGHT PART: Onward Journey (Now swapped) -->
       <div class="ticket-part stub"><br>
-      
+        
         <p><strong>From:</strong> HOWRAH </p>
         <p><strong>To:</strong> NEW DELHI </p>
         <p><strong>Train:</strong> BKN DURONTO EXP (12259)</p>
