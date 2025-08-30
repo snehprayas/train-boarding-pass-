@@ -145,7 +145,7 @@ z-index: 10;
   color: var(--text);
   background: linear-gradient(180deg, #fff, #fff);
   min-width: 0;
-  flex: 0.8;
+  flex: 0.2;
 }
 
 .ticket-part.main {
