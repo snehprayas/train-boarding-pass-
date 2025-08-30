@@ -1,3 +1,4 @@
+// data.js
 const bookings = {
   "SPC101": {
     name: "Sulekha Patni",
@@ -32,4 +33,5 @@ const bookings = {
     from: "HOWRAH",
     to: "NEW DELHI"
   }
+  // ... add SPC104 to SPC150 here
 };
