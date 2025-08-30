@@ -1,5 +1,3 @@
-// script.js
-
 function generatePass() {
   const bookingId = document.getElementById("bookingId").value.trim().toUpperCase();
   const nameInput = document.getElementById("name").value.trim();
@@ -31,7 +29,7 @@ function generatePass() {
 
       <!-- LEFT PART: QR + Booking ID + Name + Phone + Gender -->
       <div class="ticket-part stub">
-        <h2>SNEH PRAYAS</h2>
+        <h2 class="sneh-prayas">SNEH PRAYAS</h2>
         <div class="qr" id="qrSlot"></div>
         <p><strong>Booking ID:</strong> ${bookingId}</p>
         <p><strong>Name:</strong> ${data.name}</p>
@@ -39,20 +37,9 @@ function generatePass() {
         <p><strong>Gender:</strong> ${data.gender}</p>
       </div>
 
-      <!-- MAIN PART: Journey Details -->
+      <!-- MAIN PART: Journey Details (Swapped content) -->
       <div class="ticket-part main">
-        <h2>ONWARD JOURNEY</h2>
-        <p><strong>From:</strong> ${data.from}</p>
-        <p><strong>To:</strong> ${data.to}</p>
-        <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
-        <p><strong>Date:</strong> ${data.date}</p>
-        <p><strong>Time:</strong> ${data.time}</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
-      </div>
-
-      <!-- RIGHT PART: Return Journey -->
-      <div class="ticket-part stub">
-        <h2>RETURN</h2>
+        <h2 class="sneh-prayas">SNEH PRAYAS</h2>
         <p><strong>From:</strong> ${data.to}</p>
         <p><strong>To:</strong> ${data.from}</p>
         <p><strong>Train No:</strong> 54321</p>
@@ -61,8 +48,20 @@ function generatePass() {
         <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
 
+      <!-- RIGHT PART: Return Journey -->
+      <div class="ticket-part stub">
+        <h2 class="sneh-prayas">SNEH PRAYAS</h2>
+        <p><strong>From:</strong> ${data.from}</p>
+        <p><strong>To:</strong> ${data.to}</p>
+        <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
+        <p><strong>Date:</strong> ${data.date}</p>
+        <p><strong>Time:</strong> ${data.time}</p>
+        <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
+      </div>
+
     </div>
 
+    <!-- Download Button -->
     <button onclick="downloadPDF()">Download as PDF</button>
   `;
 
@@ -70,7 +69,7 @@ function generatePass() {
   const img = new Image();
   img.width = 100;
   img.height = 100;
-  img.alt = `QR Code ${bookingId}`;
+  img.alt = `QR Code for ${bookingId}`;
   img.crossOrigin = "anonymous";
 
   img.onload = () => {
@@ -83,7 +82,7 @@ function generatePass() {
   };
 
   const qrId = qrMapping[bookingId] || bookingId;  // fallback if unmapped
-img.src = `https://snehprayas.github.io/train-boarding-pass-/${qrId}.png?v=${Date.now()}`;
+  img.src = `https://snehprayas.github.io/train-boarding-pass-/${qrId}.png?v=${Date.now()}`;
 }
 
 // ✅ Download as PDF
