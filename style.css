@@ -152,22 +152,26 @@ button:hover {
   border-right: 2px dashed var(--perforation);
 }
 
-.ticket h2.sneh-prayas {
-  color: #fff;
+/* Continuous background for all three sections */
+.ticket {
+  position: relative;
+}
+
+.ticket::before {
+  content: "SNEH PRAYAS";
   font-size: 16px;
-  margin: 0;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 8px 16px;
+  color: #fff;
   background-color: var(--accent);
-  border-radius: 10px;
+  padding: 8px 16px;
   text-align: center;
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
+  border-radius: 10px 10px 0 0; /* Rounded top corners */
 }
 
 .ticket-part p {
