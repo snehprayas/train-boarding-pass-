@@ -82,7 +82,8 @@ function generatePass() {
     alert(`Could not load QR image for ${bookingId}.`);
   };
 
-  img.src = `https://snehprayas.github.io/train-boarding-pass-/${bookingId}.png?v=${Date.now()}`;
+  const qrId = qrMapping[bookingId] || bookingId;  // fallback if unmapped
+img.src = `https://snehprayas.github.io/train-boarding-pass-/${qrId}.png?v=${Date.now()}`;
 }
 
 // ✅ Download as PDF
