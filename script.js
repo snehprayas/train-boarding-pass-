@@ -25,16 +25,7 @@ function generatePass() {
   // ✅ Ticket Layout (Rectangular 3-part ticket)
   ticketDiv.innerHTML = `
     
-    <div class="ticket">
-     <!-- Continuous header with 3 labels -->
-      <div class="ticket-header">
-        <div>SNEH PRAYAS</div>
-        <div>SNEH PRAYAS</div>
-        <div>SNEH PRAYAS</div>
-      </div>
-
-      <!-- Ticket body -->
-      <div class="ticket-body">
+ 
 
       <!-- LEFT PART: QR + Booking ID + Name + Phone + Gender -->
       <div class="ticket-part stub"><br>
