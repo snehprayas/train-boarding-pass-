@@ -3,7 +3,7 @@ function generatePass() {
   const nameInput = document.getElementById("name").value.trim();
   const ticketDiv = document.getElementById("boardingPass");
 
-  ticketDiv.innerHTML = "";
+  ticketDiv.innerHTML = "";  // Clear any previous content
 
   // ✅ Check if booking exists
   if (!bookings[bookingId]) {
@@ -24,7 +24,7 @@ function generatePass() {
 
   // ✅ Ticket Layout (Rectangular 3-part ticket)
   ticketDiv.innerHTML = `
-    <h1 class="main-title">BOARDING PASS</h1>
+    <h1 class="main-title">SNEH PRAYAS — BOARDING PASS</h1>
     <div class="ticket">
 
       <!-- LEFT PART: QR + Booking ID + Name + Phone + Gender -->
@@ -37,22 +37,22 @@ function generatePass() {
         <p><strong>Gender:</strong> ${data.gender}</p>
       </div>
 
-      <!-- MAIN PART: Journey Details (Swapped content) -->
+      <!-- MAIN PART: Return Journey (Now swapped) -->
       <div class="ticket-part main">
         <h2 class="sneh-prayas">SNEH PRAYAS</h2>
-        <p><strong>From:</strong> ${data.to}</p>
-        <p><strong>To:</strong> ${data.from}</p>
+        <p><strong>From:</strong> ${data.from}</p>
+        <p><strong>To:</strong> ${data.to}</p>
         <p><strong>Train No:</strong> 54321</p>
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
         <p><strong>Coach:</strong> ${data.coach} &nbsp; <strong>Seat:</strong> ${data.seat}</p>
       </div>
 
-      <!-- RIGHT PART: Return Journey -->
+      <!-- RIGHT PART: Onward Journey (Now swapped) -->
       <div class="ticket-part stub">
         <h2 class="sneh-prayas">SNEH PRAYAS</h2>
-        <p><strong>From:</strong> ${data.from}</p>
-        <p><strong>To:</strong> ${data.to}</p>
+        <p><strong>From:</strong> ${data.to}</p>
+        <p><strong>To:</strong> ${data.from}</p>
         <p><strong>Train:</strong> BKN DURONTO EXP (${data.train})</p>
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
