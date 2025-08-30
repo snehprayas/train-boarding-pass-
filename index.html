@@ -10,10 +10,8 @@
 </head>
 <body>
   <div class="container">
-    <!-- Page title -->
     <h1 class="page-title">SNEH PRAYAS — BOARDING PASS</h1>
 
-    <!-- Gateway / entrance form (will be hidden after successful generate) -->
     <div id="gateway" class="gateway" role="region" aria-label="Booking gateway">
       <div class="form" role="form" aria-label="Enter booking details">
         <input
@@ -34,11 +32,10 @@
       </div>
     </div>
 
-    <!-- Generated boarding pass appears here -->
     <div id="boardingPass" class="hidden" aria-live="polite"></div>
   </div>
 
-  <!-- Libraries (must be loaded before your script.js) -->
+  <!-- Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
