@@ -40,22 +40,22 @@ function generatePass() {
       <!-- MAIN PART: Return Journey (Now swapped) -->
       <div class="ticket-part main"><br>
 
-        <p><strong>From:</strong> ${data.from}</p>
-        <p><strong>To:</strong> ${data.to}</p>
+        <p><strong>From:</strong> NEW DELHI </p>
+        <p><strong>To:</strong> HOWRAH </p>
         <p><strong>Train No:</strong> SDAH DURANTO (12260)</p>
-        <p><strong>Date:</strong> ${data.date}</p>
-        <p><strong>Time:</strong> ${data.time}</p>
-        <p><strong>Coach:</strong> ${data.coach} &nbsp;<BR><BR> <strong>Seat:</strong> ${data.seat}</p>
+        <p><strong>Date:</strong> 07/10/2025 </p>
+        <p><strong>Time:</strong> 07:45pm </p>
+        <p><strong>Coach:</strong> ${data.coach} &nbsp;</p> <p><strong>Seat:</strong> ${data.seat}</p>
       </div>
 
       <!-- RIGHT PART: Onward Journey (Now swapped) -->
       <div class="ticket-part stub"><br>
 
-        <p><strong>From:</strong> ${data.to}</p>
-        <p><strong>To:</strong> ${data.from}</p>
+        <p><strong>From:</strong> HOWRAH </p>
+        <p><strong>To:</strong> NEW DELHI </p>
         <p><strong>Train:</strong> BKN DURONTO EXP (12259)</p>
-        <p><strong>Date:</strong> ${data.date}</p>
-        <p><strong>Time:</strong> ${data.time}</p>
+        <p><strong>Date:</strong> 25/09/2025 </p>
+        <p><strong>Time:</strong> 05:00pm </p>
         <p><strong>Coach:</strong> ${data.coach} &nbsp;</p> <p> <strong>Seat:</strong> ${data.seat}</p>
       </div>
 
