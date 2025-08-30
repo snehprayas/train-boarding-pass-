@@ -152,7 +152,7 @@ button:hover {
   border-right: 2px dashed var(--perforation);
 }
 
-.ticket-part h2.sneh-prayas {
+.ticket h2.sneh-prayas {
   color: #fff;
   font-size: 16px;
   margin: 0;
@@ -164,6 +164,10 @@ button:hover {
   border-radius: 10px;
   text-align: center;
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .ticket-part p {
