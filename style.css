@@ -117,9 +117,7 @@ button:hover {
 }
 /* Pink strip across the top with SNEH PRAYAS repeated */
 .ticket::before {
-content: "SNEH PRAYAS";
-content: "SNEH PRAYAS";
-content: "SNEH PRAYAS";
+content: "SNEH PRAYAS"&nbsp;"SNEH PRAYAS";
 font-size: 20px;
 font-weight: 700;
 text-transform: uppercase;
